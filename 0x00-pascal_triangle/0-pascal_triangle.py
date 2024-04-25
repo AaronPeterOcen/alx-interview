@@ -1,26 +1,21 @@
 #!/usr/bin/python3
+"""
+Python Pascal Triangle
+"""
 
 
 def pascal_triangle(n):
     """creating the triangle"""
 
-    if n <= 0:
-        return []
+    res = []
+    if n > 0:
+        for i in range(1, n + 1):
+            level = []
 
-    triangle = []
+            a = 1
+            for j in range(1, i + 1):
+                level.append(a)
+                a = a * (i - j)
+            res.append(level)
 
-    triangle.append([1])
-
-    for i in range(1, n):
-        row = triangle[i - 1]
-        row1 = [1]
-
-        for j in range(1, i):
-            row1.append(row[j - 1] + row[j])
-            row1.append(1)
-            triangle.append(row1)
-
-    return triangle
-
-
-print(pascal_triangle(5))
+    return res
