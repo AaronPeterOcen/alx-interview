@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 """
-Defines a make change function that returns fewest number of coins needed to meet total
+Defines a make change function
 """
 
 
 def makeChange(coins, total):
     """
-    Minimum coins required
+    Minium coins required
     """
     if total <= 0:
         return 0
@@ -14,7 +14,7 @@ def makeChange(coins, total):
     coins.sort()
     coins = coins[::-1]
     while len(coins) > 0:
-        value = coins[0]:
+        value = coins[0]
         if trace + value > total:
             coins.pop(0)
             continue
