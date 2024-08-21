@@ -5,18 +5,16 @@ Given a pile of coins of different values, determine the fewest number of coins 
 
 
 def makeChange(coins, total):
-    if total <= 0:
+    if total == 0:
         return 0
-    trace, count = 0, 0
-    coins.sort()
-    coins = coins[::-1]
-    while len(coins) > 0:
-        value = coins[0]:
-        if trace + value > total:
-            coins.pop(0)
-            continue
-        trace += value
-        count += 1
-        if trace == total:
-            return count
-    return -1
+    elif total < 0:
+        return -1
+
+    dp = [float("inf")] * (total + 1)
+    dp[0] = 0
+
+    for coin in coins:
+        for amount in range(coin, total + 1):
+            dp[amount] = min(dp[amount], dp[amount - coin] + 1)
+
+    return dp[total] if dp[total] != float("inf") else -1
