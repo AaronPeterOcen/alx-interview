@@ -5,8 +5,6 @@ Given a pile of coins of different values, determine the fewest number of coins 
 
 
 def makeChange(coins, total):
-    """
-    """
     if total == 0:
         return 0
     elif total < 0:
