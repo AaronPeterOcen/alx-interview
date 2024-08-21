@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 """
-Defines a make change function
+Defines a make change function that returns fewest number of coins needed to meet total
 """
 
 
 def makeChange(coins, total):
     """
-    Minium coins required
+    Minimum coins required
     """
     if total <= 0:
         return 0
@@ -23,4 +23,3 @@ def makeChange(coins, total):
         if trace == total:
             return count
     return -1
-
